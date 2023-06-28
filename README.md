@@ -4,7 +4,7 @@ This Project is about to bring a basic app "Hello-App" using Jenkins (for buildi
 
 ## Automated
 Terraform
-1. Launching EC2 instance (Bastion, Jenkins & App) in a VPC setup on AWS which includes public & private subnets (multi-AZ). Public subnets should be used for only exposing required services. <br>
+1. Launching EC2 instance (Bastion, Jenkins & App) in a VPC setup on AWS which includes public & private subnets (multi-AZ). Public subnets are used for only exposing required services. <br>
     a. Bastion in public subnet. <br>
     b. Jenkins and App in private subnet. <br>
 2. Security Groups for EC2 Instances & ALB. <br> 
