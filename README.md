@@ -2,12 +2,6 @@
 
 This Project is about to built a 3 Tier Architecture using Terraform in AWS, Installing docker on Jenkins & App Server using Ansible, Deploying application on app server using CICD Jenkins and storing the build artifacts into ECR.
 
-## Manual Creations
-a) ALB and Target Groups <br>
-b) S3 Bucket <br>
-c) ECR Repo <br>
-d) DynamoDB table <br>
-
 ## Automated
 Terraform
 1. Launching EC2 instance (Bastion, Jenkins & App) in a 3 Tier VPC Setup. <br>
@@ -29,6 +23,24 @@ CICD Jenkins
 
 ECR
 1. Pushing & Storing app build artifacts into ECR.
+
+## Manual Creations
+a) ALB and Target Groups <br>
+b) S3 Bucket <br>
+c) ECR Repo <br>
+d) DynamoDB table <br>
+
+## Important Manual Commands
+#Command to avoid sudo for docker commands on Jenkins & App Server
+```
+ansible all -m shell -a "sudo usermod -aG docker ${USER}" -i /path/inventory_aws_ec2.yaml
+```
+
+#Command to run jenkins as docker container in Jenkins Server
+```
+docker run -itd --name jenkins-local -p 8080:8080 -v jenkins:/var/jenkins_home --env JENKINS_OPTS="--prefix=/jenkins" jenkins/jenkins:lts
+```
+
 
 
 
