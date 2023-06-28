@@ -1,0 +1,21 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+
+filters:
+  tag:Name: venkat-assignment*
+  tag:Environment:
+    - dev
+
+exclude_filters:
+  - tag:Name: venkat-assignment-bastion
+
+hostnames:
+  - tag:Name
+
+compose:
+  ansible_host: private_ip_address
+
+keyed_groups:
+  - key: tags.Server
+    separator: ""
